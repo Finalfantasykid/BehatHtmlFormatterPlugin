@@ -1,5 +1,5 @@
 {
-    "name": "david/behat-html-formatter",
+    "name": "dwt/behat-html-formatter",
     "description": "This will create a html formatter for Behat.",
     "license": "MIT",
     "authors": [
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "david\\BehatHTMLFormatter\\": "src/"
+            "dwt\\BehatHTMLFormatter\\": "src/"
         }
     },
     "extra": {
