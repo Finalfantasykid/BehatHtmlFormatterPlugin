@@ -1,6 +1,6 @@
 <?php
 
-namespace emuse\BehatHTMLFormatter\Formatter;
+namespace dwt\BehatHTMLFormatter\Formatter;
 
 use Behat\Behat\EventDispatcher\Event\AfterFeatureTested;
 use Behat\Behat\EventDispatcher\Event\AfterOutlineTested;
@@ -20,12 +20,12 @@ use Behat\Testwork\EventDispatcher\Event\BeforeExerciseCompleted;
 use Behat\Testwork\EventDispatcher\Event\BeforeSuiteTested;
 use Behat\Testwork\Output\Formatter;
 use Behat\Testwork\Output\Printer\OutputPrinter;
-use emuse\BehatHTMLFormatter\Classes\Feature;
-use emuse\BehatHTMLFormatter\Classes\Scenario;
-use emuse\BehatHTMLFormatter\Classes\Step;
-use emuse\BehatHTMLFormatter\Classes\Suite;
-use emuse\BehatHTMLFormatter\Printer\FileOutputPrinter;
-use emuse\BehatHTMLFormatter\Renderer\BaseRenderer;
+use dwt\BehatHTMLFormatter\Classes\Feature;
+use dwt\BehatHTMLFormatter\Classes\Scenario;
+use dwt\BehatHTMLFormatter\Classes\Step;
+use dwt\BehatHTMLFormatter\Classes\Suite;
+use dwt\BehatHTMLFormatter\Printer\FileOutputPrinter;
+use dwt\BehatHTMLFormatter\Renderer\BaseRenderer;
 
 /**
  * Class BehatHTMLFormatter.
@@ -536,6 +536,13 @@ class BehatHTMLFormatter implements Formatter
         $scenario->setName($event->getOutline()->getTitle());
         $scenario->setTags($event->getOutline()->getTags());
         $scenario->setLine($event->getOutline()->getLine());
+        $scenario->setScreenshotName($event->getOutline()->getTitle());
+        $scenario->setScreenshotPath(
+            $this->printer->getOutputPath().
+            '/assets/screenshots/'.
+            preg_replace('/\W/', '', $event->getFeature()->getTitle()).'/'.
+            preg_replace('/\W/', '', $event->getOutline()->getTitle()).'.png'
+        );
         $this->currentScenario = $scenario;
 
         $print = $this->renderer->renderBeforeOutline($this);

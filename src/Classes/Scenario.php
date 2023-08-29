@@ -1,6 +1,6 @@
 <?php
 
-namespace emuse\BehatHTMLFormatter\Classes;
+namespace dwt\BehatHTMLFormatter\Classes;
 
 class Scenario
 {
@@ -194,6 +194,10 @@ class Scenario
     {
         return $this->screenshotPath;
     }
+    
+    public function hasScreenshot(){
+        return file_exists($this->screenshotPath);
+    }
 
     /**
      * Gets relative path for screenshot.
@@ -202,10 +206,6 @@ class Scenario
      */
     public function getRelativeScreenshotPath()
     {
-        if (!file_exists($this->screenshotPath)) {
-            return false;
-        }
-
         return '.'.substr($this->screenshotPath, strpos($this->screenshotPath, '/assets/screenshots'));
     }
 }

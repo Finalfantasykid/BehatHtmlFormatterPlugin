@@ -5,7 +5,7 @@
  * @author DaSayan <glennwall@free.fr>
  */
 
-namespace emuse\BehatHTMLFormatter\Renderer;
+namespace dwt\BehatHTMLFormatter\Renderer;
 
 use Behat\Gherkin\Node\TableNode;
 

@@ -1,6 +1,6 @@
 ## BehatHtmlFormatterPlugin
 
-Behat 3 extension for generating HTML reports from your test results.
+Behat 3 extension for generating HTML reports from your test results.  This fork adds screenshots for every step.
 
 [![Latest Stable Version](https://poser.pugx.org/emuse/behat-html-formatter/v/stable)](https://packagist.org/packages/emuse/behat-html-formatter) [![Total Downloads](https://poser.pugx.org/emuse/behat-html-formatter/downloads)](https://packagist.org/packages/emuse/behat-html-formatter) [![Latest Unstable Version](https://poser.pugx.org/emuse/behat-html-formatter/v/unstable)](https://packagist.org/packages/emuse/behat-html-formatter) [![License](https://poser.pugx.org/emuse/behat-html-formatter/license)](https://packagist.org/packages/emuse/behat-html-formatter)
 
@@ -35,7 +35,7 @@ The easiest way to keep your suite updated is to use [Composer](http://getcompos
 #### Install with composer:
 
 ```bash
-$ composer require --dev emuse/behat-html-formatter
+$ composer require --dev dwt/behat-html-formatter
 ```
 
 #### Install using `composer.json`
@@ -46,7 +46,7 @@ Add BehatHtmlFormatterPlugin to the list of dependencies inside your `composer.j
 {
     "require": {
         "behat/behat": "3.*@stable",
-        "emuse/behat-html-formatter": "0.1.*",
+        "dwt/behat-html-formatter": "0.1.*",
     },
     "minimum-stability": "dev",
     "config": {
@@ -73,7 +73,7 @@ default:
   suites:
     default:
        contexts:
-          - emuse\BehatHTMLFormatter\Context\ScreenshotContext:
+          - dwt\BehatHTMLFormatter\Context\ScreenshotContext:
                screenshotDir: build/html/behat/assets/screenshots
     ... # All your awesome suites come here
   formatters:
@@ -81,7 +81,7 @@ default:
       output_path: %paths.base%/build/html/behat
 
   extensions:
-    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+    dwt\BehatHTMLFormatter\BehatHTMLFormatterExtension:
       name: html
       renderer: Twig,Behat2
       file_name: index
